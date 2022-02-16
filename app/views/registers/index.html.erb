@@ -1,0 +1,30 @@
+<h4>登録済みルーム一覧</h4>
+
+<% if flash[:notice] %>
+  <p class="notice"><%= flash[:notice] %></p>
+<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th>ルーム画像</th>
+      <th>ルーム名</th>
+      <th>ルーム紹介</th>
+      <th>料金</th>
+      <th>作成日</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @regiters.each do |resgister| %>
+      <tr>
+        <td><%= register.img_id %></td>
+        <td><%= register.name_room %></td>
+        <td><%= register.int_room %></td>
+        <td><%= register.price %></td>
+        <td><%= register.created_at  %></td>
+      </tr>
+    <% end %>
+  </tbody>
+
+</table>

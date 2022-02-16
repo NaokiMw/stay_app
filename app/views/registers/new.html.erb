@@ -1,0 +1,40 @@
+<h3>ルーム情報登録</h3>
+
+<%= form_with model: @register do |f| %>
+
+    <table>
+      <tr>
+        <th><%= f.label :name_room ,"ルーム名" %></th>
+        <td><%= f.text_field :name_room %></td>
+      </tr>
+
+      <tr>
+        <th><%= f.label :int_room ,"ルーム紹介" %></th>
+        <td><%= f.text_field :int_room %></td>
+      </tr>
+
+      <tr>
+        <th><%= f.label :price ,"料金" %></th>
+        <td><%= f.number_field :price %></td>
+      </tr>
+
+      <tr>
+        <th><%= f.label :adress ,"住所" %></th>
+        <td><%= f.text_field :adress %></td>
+      </tr>
+
+      <tr>
+        <th><%= f.label :img_id ,"ルーム画像" %></th>
+        <td><%= f.attachment_field :img_id %></td>
+      </tr>
+    </table>
+
+    <div>
+      <ul>
+      <li><%= f.submit "登録"%></li>
+      </ul>
+    </div>
+<% end %>
+        
+
+
