@@ -4,6 +4,7 @@ class RegistersController < ApplicationController
     @registers = Register.all
   end
   def new
+    @user = User.find(params[:id])
     @register = Register.new
   end
 
@@ -31,6 +32,6 @@ class RegistersController < ApplicationController
 
   private
   def register_params
-    params.require(:register).permit(:name_room, :int_room, :price, :adress, :image)
+    params.require(:register).permit(:name_room, :int_room, :price, :adress, :image, :user_id)
   end
 end
