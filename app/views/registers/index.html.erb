@@ -16,9 +16,9 @@
   </thead>
 
   <tbody>
-    <% @regiters.each do |resgister| %>
+    <% @registers.each do |register| %>
       <tr>
-        <td><%= register.img_id %></td>
+        <td><%= register.attachment_image_tag post, :image, format: 'jpeg', size: '100x100' %></td>
         <td><%= register.name_room %></td>
         <td><%= register.int_room %></td>
         <td><%= register.price %></td>

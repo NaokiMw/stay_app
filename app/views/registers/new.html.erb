@@ -24,8 +24,8 @@
       </tr>
 
       <tr>
-        <th><%= f.label :img_id ,"ルーム画像" %></th>
-        <td><%= f.attachment_field :img_id %></td>
+        <th><%= f.label :image ,"ルーム画像" %></th>
+        <td><%= f.file_field :image, accept: 'image/jpeg,image/gif,image/png' %></td>
       </tr>
     </table>
 
@@ -35,6 +35,6 @@
       </ul>
     </div>
 <% end %>
-        
+
 
 
