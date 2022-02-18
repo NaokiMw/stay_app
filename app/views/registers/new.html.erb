@@ -25,11 +25,18 @@
 
       <tr>
         <th><%= f.label :image ,"ルーム画像" %></th>
-        <td><%= f.file_field :image, accept: 'image/jpeg,image/gif,image/png' %></td>
+        <td>
+          <div class="form-group">
+            <%= f.label :image %>
+            <%= f.file_field :image, onchange: 'previewImage()', class: 'form-control' %>
+            <%= f.hidden_field :image_cache %>
+            <%= image_tag @register.image.url, class: 'rounded-circle mt-3', id: 'preview', size: '100x100' %>
+          </div>
+        </td>
       </tr>
     </table>
 
-    <%= f.hidden_field :user_id, value: @user.id %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
     <div>
       <ul>
       <li><%= f.submit "登録"%></li>

@@ -2,9 +2,10 @@ class RegistersController < ApplicationController
 
   def index
     @registers = Register.all
+    @users = User.all
   end
   def new
-    @user = User.find(params[:id])
+    @user = current_user.id
     @register = Register.new
   end
 
@@ -12,7 +13,7 @@ class RegistersController < ApplicationController
     @register = Register.new(register_params)
     if @register.save
       flash[:notice] = "ルームを新規登録しました"
-      redirect_to :register
+      redirect_to :registers
     else
       render"new"
     end

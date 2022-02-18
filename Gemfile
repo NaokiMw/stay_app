@@ -59,3 +59,4 @@ gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 #画像アップロード
 gem 'carrierwave'
+gem 'pry-rails'
