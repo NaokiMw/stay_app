@@ -11,17 +11,36 @@
   </head>
 
   <body>
+    <header class = "header">
+      <div class = "headerinner">
+
+        <div class = "headerleft">
+          <div class = "h_leftitem">
+            <h3>poteshare</h3>
+          </div>
+          <div class = "h_leftitem">
+            <h3>エリア</h3>
+          </div>
+          <div class = "h_leftitem">
+            <h3>キーワード</h3>
+          </div>
+        </div>
+
+        <div class = "headerright">
+          <%if user_signed_in? %>
+            ログインユーザー: <%= current_user.email %>
+            <%= link_to "ログアウト", destroy_user_session_path %>
+          <% else %>
+            <%= link_to "ログイン", new_user_session_path %>
+            <%= link_to "新規登録", new_user_registration_path %>
+          <% end %>
+        </div>
+      </div>
+    </header>
+
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
-    <%if user_signed_in? %>
-      ログインユーザー: <%= current_user.email %>
-      <%= link_to "ログアウト", destroy_user_session_path %>
-    <% else %>
-      <%= link_to "ログイン", new_user_session_path %>
-      <%= link_to "新規登録", new_user_registration_path %>
-    <% end %>
-      
 
     <%= yield %>
   </body>

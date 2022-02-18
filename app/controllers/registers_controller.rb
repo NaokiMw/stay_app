@@ -29,6 +29,10 @@ class RegistersController < ApplicationController
   end
 
   def destroy
+    @register = Register.find(params[:id])
+      @register.destroy
+      flash[:notice] = "ルーム情報を削除しました"
+      redirect_to :registers
   end
 
   private

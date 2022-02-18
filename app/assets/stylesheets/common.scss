@@ -1,0 +1,28 @@
+.header{
+    width: 100%;
+    height: auto;
+    position: relative;
+    background-color: black;
+    color: white;
+}
+.headerinner{
+    overflow: hidden;
+}
+.headerleft{
+    overflow: hidden;
+    float: left;
+}
+.h_leftitem{
+    float: left;
+    text-align: center;
+    padding: 10px 10px;
+}
+.headerright{
+    overflow: hidden;
+    float: right;
+}
+.h_rightitem{
+    float: right;
+    text-align: center;
+    padding: 20px 30px;
+}
