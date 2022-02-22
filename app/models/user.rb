@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :registers,class_name: 'register',foreign_key: 'room_id'
+  has_many :registers
   has_many :reserves
 
 end
