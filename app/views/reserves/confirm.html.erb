@@ -1,0 +1,44 @@
+<h1> 確認画面 </h1>
+
+<table>
+  <tr>
+    <th>料金</th>
+    <td>
+      <div>
+        <%= @reserve.fee %> /日
+      </div>
+    </td>
+  </tr>
+
+  <tr>
+    <th>開始日</th>
+    <td><%= @reserve.start_day %></td>
+  </tr>
+
+  <tr>
+    <th>終了日</th>
+    <td><%= @reserve.end_day %></td>
+  </tr>
+  <tr>
+    <th>使用日数</th>
+    <td><%= @reserve.amount_day %></td>
+  </tr>
+
+  <tr>
+    <th>人数</th>
+    <td><%= @reserve.guest %></td>
+  </tr>
+
+  <tr>
+    <th>合計金額</th>
+    <td><%= @reserve.amount_price %>
+  </tr>
+</table>
+
+<%= form_for @reserve, method: :post, url: reserves_back_path do |form| %>
+    <%= form.submit '入力画面に戻る' %>
+<% end %>
+
+<%= form_for @reserve, method: :post, url: reserves_path do |form| %>
+	<%= form.submit '送信する' %>
+<% end %>
