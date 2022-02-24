@@ -21,7 +21,7 @@ class RegistersController < ApplicationController
   end
 
   def show
-    @register = Register.find(params[:id])
+    @register = Register.all
   end
 
   def edit
