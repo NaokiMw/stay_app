@@ -19,11 +19,19 @@
             <h3>poteshare</h3>
           </div>
           <div class = "h_leftitem">
-            <h3>エリア</h3>
+          <%= search_form_for @q, url: registers_search_path do |f| %>
+            <%= f.search_field :adress_cont,placeholder:"エリア" %>
+            <% f.submit %>
+          <% end %>
+
           </div>
           <div class = "h_leftitem">
-            <h3>キーワード</h3>
+          <%= search_form_for @q, url: registers_search_path do |f| %>
+            <%= f.search_field :int_room_cont,placeholder:"キーワード" %>
+            <% f.submit %>
+          <% end %>
           </div>
+
         </div>
 
         <div class = "headerright">

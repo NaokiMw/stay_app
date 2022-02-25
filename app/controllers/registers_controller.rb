@@ -26,6 +26,10 @@ class RegistersController < ApplicationController
 
   def edit
   end
+  def search
+    @q = Register.search(search_params)
+    @results = @q.result(distinct: true)
+  end
 
   def update
   end
@@ -40,5 +44,9 @@ class RegistersController < ApplicationController
   private
   def register_params
     params.require(:register).permit(:name_room, :int_room, :price, :adress, :image, :user_id)
+  end
+
+  def search_params
+    params.require(:q).permit(:address_cont, :name_room_or_int_room_or_address_cont)
   end
 end

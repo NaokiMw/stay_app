@@ -61,3 +61,4 @@ gem "refile-mini_magick"
 gem 'carrierwave'
 gem 'pry-rails'
 gem 'rmagick'
+gem 'ransack'
