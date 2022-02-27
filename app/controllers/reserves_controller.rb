@@ -3,7 +3,8 @@ class ReservesController < ApplicationController
     session.delete(:register)
     session.delete(:reserve)
     @reserve = Reserve.new
-    @register = Register.find(1)
+    register = params[:register_id]
+    @register = Register.find_by(id: register)
     session[:register] = @register.price
   end
   def new
@@ -12,7 +13,7 @@ class ReservesController < ApplicationController
   end
 
   def back
-    @register = Register.find(1)
+    @register = Register.find(:id)
 		@reserve = Reserve.new(session[:reserve])
 		session.delete(:reserve)
 		render :index
@@ -28,7 +29,7 @@ class ReservesController < ApplicationController
 
   def create
     @user = current_user.id
-    @register = Room.find(1)
+    @register = Room.find(:id)
 
     @reserve = Reserve.new(params.require(:reserve).permit(:start_day,:end_day,:guest,:fee,:register_id,:user_id))
       if @reserve.save

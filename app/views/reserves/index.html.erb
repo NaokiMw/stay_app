@@ -31,7 +31,7 @@
     </td>
   </tr>
   <%= f.hidden_field :user_id , value: current_user.id %>
-  <%= f.hidden_field :register_id , value: 1 %>
+  <%= f.hidden_field :register_id , value: @register_id %>
   <tr>
     <th><%= f.label :start_day ,"開始日" %></th>
     <td><%= f.date_field :start_day %></td>

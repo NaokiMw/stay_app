@@ -1,4 +1,6 @@
-<h1>検索結果 件</h1>
+<h1>検索結果</h1>
+<div class = "room_link">
+
 <table>
   <thead>
     <tr>
@@ -6,18 +8,22 @@
       <th>ルーム名</th>
       <th>ルーム紹介</th>
       <th>料金</th>
+      <th>予約<th/>
     </tr>
   </thead>
 
 <tbody>
 <% @results.each do |register| %>
+
   <tr>
     <td><%= image_tag register.image.url,class: "register_image" %></td>
     <td><%= register.name_room %></td>
     <td><%= register.int_room %></td>
     <td><%= register.price %></td>
+    <td><%= link_to "予約", reserves_path(register_id: register.id) %></td>
   </tr>
 <% end %>
 </tbody>
 
 </table>
+</div>

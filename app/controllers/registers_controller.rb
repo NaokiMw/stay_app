@@ -11,7 +11,7 @@ class RegistersController < ApplicationController
 
   def create
     @register = Register.new(register_params)
-    binding.pry
+
     if @register.save
       flash[:notice] = "ルームを新規登録しました"
       redirect_to :registers
