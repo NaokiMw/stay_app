@@ -1,21 +1,21 @@
 class ReservesController < ApplicationController
   def index
-    session.delete(:register)
     session.delete(:reserve)
     @reserve = Reserve.new
     register = params[:register_id]
     @register = Register.find_by(id: register)
-    session[:register] = @register.price
   end
+
   def new
     session.delete(:reserve)
     @reserve = Reserve.new
   end
 
   def back
-    @register = Register.find(:id)
-		@reserve = Reserve.new(session[:reserve])
+    @reserve = Reserve.new(session[:reserve])
 		session.delete(:reserve)
+    register = params[:register_id]
+    binding.pry
 		render :index
   end
 
@@ -29,21 +29,20 @@ class ReservesController < ApplicationController
 
   def create
     @user = current_user.id
-    @register = Room.find(:id)
-
-    @reserve = Reserve.new(params.require(:reserve).permit(:start_day,:end_day,:guest,:fee,:register_id,:user_id))
+    @reserve = Reserve.create!(session[:reserve])
+    session.delete(:reserve)
       if @reserve.save
         flash[:notice] = "スケジュールを登録しました"
-        session.delete(:reserve)
-        redirect_to :registers
+        redirect_to reserves_complete_path
 
       else
         session.delete(:reserve)
-        render "index"
+        render :index
       end
   end
 
   def show
+    @reserves = Reserve.all.includes(:register)
   end
 
   def edit
@@ -53,5 +52,9 @@ class ReservesController < ApplicationController
   end
 
   def destroy
+    @reserve = Reserve.find(params[:id])
+      @reserve.destroy
+      flash[:notice] = "ユーザーを削除しました"
+      redirect_to reserves_complete_path
   end
 end

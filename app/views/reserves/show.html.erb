@@ -1,0 +1,30 @@
+
+    <table>
+    <thead>
+    <tr>
+      <th>ルーム画像</th>
+      <th>予約した部屋</th>
+      <th>開始日</th>
+      <th>終了日</th>
+      <th>価格</th>
+      <th>予約確定日</th>
+      <th>削除</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr>
+    <% @reserves.each do |reserve| %>
+      <td><%= image_tag reserve.register.image.url,class: "register_image" %></td>
+      <td><%= reserve.register.name_room %></td>
+      <td><%= reserve.start_day %></td>
+      <td><%= reserve.end_day %></td>
+      <td>¥<%= reserve.fee * reserve.guest%>/日</td>
+      <td><%= reserve.created_at %></td>
+      <td>
+        <%= link_to "削除", reserve, method: :delete, data: { confirm: "本当に削除しますか？" } %>
+      </td>
+      </tr>
+    <% end %>
+  </tbody>
+  </table>
