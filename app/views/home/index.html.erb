@@ -1,2 +1,52 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<div class="top">
+  <div class="top-main">
+    <div class="form-fream">
+      <div class="form-area">
+        <p class="form-area-title">Potepan Shareでまだ体験した事のない旅をしよう</p>
+        <p class="form-area-form">エリア</p>
+        <%= search_form_for @q, url: registers_search_path do |f| %>
+          <%= f.search_field :adress_cont,placeholder:"東京",class: "form-field" %>
+          <br>
+          <%= f.submit "探す" ,class: "form-btn"%>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="panal-area">
+      <h1 class="section-title">おすすめのエリア</h1>
+      <div class="panel-items">
+
+        <div class="panel-item">
+          <span>東京</span>
+          <a href="registers/search?q%5Badress_cont%5D=東京">
+          <%= image_tag 'img_tokyo.jpeg',class: "panel-img" %>
+        </div>
+
+        <div class="panel-item">
+          <span>大阪</span>
+          <a href="registers/search?q%5Badress_cont%5D=大阪">
+          <%= image_tag 'img_osaka.jpeg',class: "panel-img" %>
+        </div>
+
+        <div class="panel-item">
+          <span>京都</span>
+          <a href="registers/search?q%5Badress_cont%5D=東京">
+          <%= image_tag 'img_kyoto.jpeg',class: "panel-img" %>
+        </div>
+
+        <div class="panel-item">
+          <span>札幌</span>
+          <a href="registers/search?q%5Badress_cont%5D=東京">
+          <%= image_tag 'img_sapporo.jpeg',class: "panel-img" %>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
