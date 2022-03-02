@@ -4,6 +4,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+         attr_accessor :current_password
+
+         mount_uploader :image, ImageUploader
+
+
   has_many :registers
   has_many :reserves
 

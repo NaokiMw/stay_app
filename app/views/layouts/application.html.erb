@@ -36,7 +36,8 @@
 
         <div class = "headerright">
           <%if user_signed_in? %>
-            ログインユーザー: <%= current_user.email %>
+            ログインユーザー: <%= current_user.name %>
+            <img src=<%= current_user.image %> class = "icon_image">
             <%= link_to "ログアウト", destroy_user_session_path %>
           <% else %>
             <%= link_to "ログイン", new_user_session_path %>

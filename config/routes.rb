@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   post 'reserves/complete'
   post 'reserves/show'
 
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'users/registrations' }
   root to: 'home#index'
 
   resources :registers
