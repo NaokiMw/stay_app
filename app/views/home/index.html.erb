@@ -19,26 +19,28 @@
       <div class="panel-items">
 
         <div class="panel-item">
+          <%= search_form_for @q, url: registers_search_path do |f| %>
           <span>東京</span>
-          <a href="registers/search?q%5Badress_cont%5D=東京">
+          <a href="/registers/search?q%5Badress_cont%5D=東京">
           <%= image_tag 'img_tokyo.jpeg',class: "panel-img" %>
+          <% end %>
         </div>
 
         <div class="panel-item">
           <span>大阪</span>
-          <a href="registers/search?q%5Badress_cont%5D=大阪">
+          <a href="/registers/search?q%5Badress_cont%5D=大阪">
           <%= image_tag 'img_osaka.jpeg',class: "panel-img" %>
         </div>
 
         <div class="panel-item">
           <span>京都</span>
-          <a href="registers/search?q%5Badress_cont%5D=東京">
+          <a href="/registers/search?q%5Badress_cont%5D=京都">
           <%= image_tag 'img_kyoto.jpeg',class: "panel-img" %>
         </div>
 
         <div class="panel-item">
           <span>札幌</span>
-          <a href="registers/search?q%5Badress_cont%5D=東京">
+          <a href="/registers/search?q%5Badress_cont%5D=札幌">
           <%= image_tag 'img_sapporo.jpeg',class: "panel-img" %>
         </div>
 

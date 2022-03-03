@@ -1,4 +1,5 @@
 class RegistersController < ApplicationController
+  before_action :search
 
   def index
     @registers = Register.all
@@ -27,8 +28,8 @@ class RegistersController < ApplicationController
   def edit
   end
   def search
-    @q = Register.search(search_params)
-    @results = @q.result(distinct: true)
+    @register = Register.all
+
   end
 
   def update

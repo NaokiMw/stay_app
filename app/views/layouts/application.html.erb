@@ -20,14 +20,14 @@
           </div>
           <div class = "h_leftitem">
           <%= search_form_for @q, url: registers_search_path do |f| %>
-            <%= f.search_field :adress_cont,placeholder:"エリア" %>
+            <%= f.text_field :adress_cont ,placeholder:"エリア" %>
             <% f.submit %>
           <% end %>
 
           </div>
           <div class = "h_leftitem">
           <%= search_form_for @q, url: registers_search_path do |f| %>
-            <%= f.search_field :int_room_cont,placeholder:"キーワード" %>
+            <%= f.search_field :int_room_or_price_cont,placeholder:"キーワード" %>
             <% f.submit %>
           <% end %>
           </div>
