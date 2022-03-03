@@ -16,7 +16,7 @@
 
         <div class = "headerleft">
           <div class = "h_leftitem">
-            <h3>poteshare</h3>
+            <a href="/home/index">,poteshare</a>
           </div>
           <div class = "h_leftitem">
           <%= search_form_for @q, url: registers_search_path do |f| %>
@@ -35,10 +35,23 @@
         </div>
 
         <div class = "headerright">
-          <%if user_signed_in? %>
-            ログインユーザー: <%= current_user.name %>
-            <img src=<%= current_user.image %> class = "icon_image">
-            <%= link_to "ログアウト", destroy_user_session_path %>
+        <%if user_signed_in? %>
+          ログインユーザー: <%= current_user.name %>
+
+          <input id="menu-cb" type="checkbox" value="off">
+          <span class="icon_image"> <img src=<%= current_user.image %> class = "icon_image"></span>
+          <label id="menu-icon" for="menu-cb"></label>
+
+          <div id="ham-menu">
+          <ul class="header-items">
+            <li class="header-item"><a href="/registers/new">ルーム登録</a></li>
+            <li class="header-item"><a href="/reserves/show">予約済ルーム一覧</a></li>
+            <li class="header-item"><a href="/registers/index">登録済ルーム一覧</a></li>
+            <li class="header-item"><a href="/users/edit">設定</a></li>
+            <li class="header-item"><a href="destroy_user_session_path">ログアウト</a></li>
+          </ul>
+          </div>
+
           <% else %>
             <%= link_to "ログイン", new_user_session_path %>
             <%= link_to "新規登録", new_user_registration_path %>

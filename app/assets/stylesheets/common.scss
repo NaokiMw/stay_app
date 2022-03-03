@@ -32,3 +32,41 @@
    border-radius: 40px;
    object-fit: cover;
 }
+
+input[type="checkbox"]{
+    background: url(./current_user.image);
+}
+
+li {
+    list-style:none;
+  }
+  .header-items {
+    align-items: center;
+    padding-right: 3%;
+}
+.header-item {
+
+    display: flex;
+}
+.header-item a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+/* header hamburger */
+
+#ham-menu {
+    background-color: #fff; /*メニュー背景色*/
+    box-sizing: border-box;
+    position: absolute;
+    margin: 60,0,0,0;
+    right: -100%; /*メニュー横幅 width と合わせる*/
+    transition: transform 0.3s linear 0s; /*0.3s はアニメーションにかかる時間*/
+    width: 100%; /*メニュー横幅*/
+    z-index: 1000;
+    text-align: center;
+}
+#menu-cb:checked ~ #ham-menu {
+    transform: translate(-25%); /*メニュー本体横幅 width と合わせる*/
+    text-align: center;
+}
