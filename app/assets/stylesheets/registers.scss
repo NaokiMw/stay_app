@@ -3,6 +3,32 @@
     height: 150px;
 
 }
+.update_container{
+    border-bottom: 1px solid #eaedef;
+    padding: 20px;
+    margin: 0 15px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+.form-btn{
+    font-size: 17px;
+    color: #fff;
+    background-color: #4a90e2;
+    border-color: #007bff;
+    width: 100px;
+    margin-bottom: 1.5rem;
+    height: 40px;
+}
+.register_table{
+    min-width: 800px;
+    padding: 8px 15px;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+.register_tr{
+text-align: center;
+
+}
 // Place all the styles related to the registers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/

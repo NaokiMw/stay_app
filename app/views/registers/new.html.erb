@@ -2,7 +2,7 @@
 
 <%= form_with model: @register do |f| %>
 
-    <table>
+    <table class="update_container">
       <tr>
         <th><%= f.label :name_room ,"ルーム名" %></th>
         <td><%= f.text_field :name_room %></td>
@@ -10,7 +10,7 @@
 
       <tr>
         <th><%= f.label :int_room ,"ルーム紹介" %></th>
-        <td><%= f.text_field :int_room %></td>
+        <td><%= f.text_area :int_room %></td>
       </tr>
 
       <tr>
@@ -39,7 +39,7 @@
     <%= f.hidden_field :user_id, value: current_user.id %>
     <div>
       <ul>
-      <li><%= f.submit "登録"%></li>
+      <li><%= f.submit "登録" ,class: "form-btn" %></li>
       </ul>
     </div>
 <% end %>
