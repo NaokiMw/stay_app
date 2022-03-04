@@ -1,7 +1,10 @@
 class Register < ApplicationRecord
     validates :name_room, presence: true
-    validates :int_room, presence: true, maximum: 300
-    valodates :price, numericality: true, presence: true
+
+    validates :int_room, length: {maximum:300}
+
+    validates :price, numericality: true, presence: true
+
     validates :adress, presence: true
 
     mount_uploader :image, ImageUploader
