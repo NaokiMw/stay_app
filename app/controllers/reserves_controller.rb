@@ -1,9 +1,9 @@
 class ReservesController < ApplicationController
   def index
-    session.delete(:reserve)
-    @reserve = Reserve.new
     register = params[:register_id]
     @register = Register.find_by(id: register)
+    session.delete(:reserve)
+    @reserve = Reserve.new
   end
 
   def new
