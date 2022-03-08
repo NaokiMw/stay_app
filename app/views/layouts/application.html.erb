@@ -48,7 +48,7 @@
             <li class="header-item"><a href="/reserves/show">予約済ルーム一覧</a></li>
             <li class="header-item"><a href="/registers/index">登録済ルーム一覧</a></li>
             <li class="header-item"><a href="/users/edit">設定</a></li>
-            <li class="header-item"><a href="destroy_user_session_path">ログアウト</a></li>
+            <li class="header-item"><a <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>>ログアウト</a></li>
           </ul>
           </div>
 
