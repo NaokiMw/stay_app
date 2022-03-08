@@ -1,0 +1,60 @@
+
+<table>
+  <thead>
+    <tr>
+      <th>ユーザー画像</th>
+      <th>ルーム名</th>
+      <th>住所</th>
+      <th>ルーム紹介</th>
+    </tr>
+  </thead>
+
+  <tbody>
+     <% @registers.each do |register| %>
+       <tr>
+         <td>画像</td>
+         <td><%= register.name_room %></td>
+         <td><%= register.adress %></td>
+         <td><%= register.int_room %></td>
+       </tr>
+     <% end %>
+  </tbody>
+
+</table>
+
+
+<table>
+  <tr>
+    <th>料金</th>
+    <td>
+      <% @registers.each do |register| %>
+        <%= register.name_room %>
+      <% end %>
+    </td>
+  </tr>
+  <%= form_with model:@reserve, local: true do |f| %>
+    <tr>
+      <th><%= f.label :startdate ,"開始日" %></th>
+      <td><%= f.date_field :startdate %></td>
+    </tr>
+
+    <tr>
+      <th><%= f.label :enddate ,"終了日" %></th>
+      <td><%= f.date_field :enddate %></td>
+    </tr>
+
+    <tr>
+      <th><%= f.label :memo ,"人数" %></th>
+      <td><%= f.text_area :memo %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= form_with model:@reserve, local: true do |f| %>
+    <div>
+      <ul>
+        <li><%= f.submit "予約完了" %></li>
+        <li><%= link_to "ユーザー情報一覧に戻る" ,:schejules %></li>
+      </ul>
+    </div>
+<% end %>

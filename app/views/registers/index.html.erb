@@ -1,0 +1,34 @@
+<h4>登録済みルーム一覧</h4>
+
+<% if flash[:notice] %>
+  <p class="notice"><%= flash[:notice] %></p>
+<% end %>
+
+<table class="register_table">
+  <thead>
+    <tr class="register_tr">
+      <th>ルーム画像</th>
+      <th>ルーム名</th>
+      <th>ルーム紹介</th>
+      <th>料金</th>
+      <th>作成日</th>
+      <th>削除</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @registers.each do |register| %>
+      <tr>
+        <td><%= image_tag register.image.url,class: "register_image" %></td>
+        <td><%= register.name_room %></td>
+        <td><%= register.int_room %></td>
+        <td><%= register.price %></td>
+        <td><%= register.created_at  %></td>
+        <td>
+          <%= link_to "削除", register, method: :delete, data: { confirm: "本当に削除しますか？" } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+
+</table>

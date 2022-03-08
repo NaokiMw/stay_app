@@ -1,0 +1,48 @@
+<h3>ルーム情報登録</h3>
+
+<%= form_with model: @register do |f| %>
+
+    <table class="update_container">
+      <tr>
+        <th><%= f.label :name_room ,"ルーム名" %></th>
+        <td><%= f.text_field :name_room %></td>
+      </tr>
+
+      <tr>
+        <th><%= f.label :int_room ,"ルーム紹介" %></th>
+        <td><%= f.text_area :int_room %></td>
+      </tr>
+
+      <tr>
+        <th><%= f.label :price ,"料金" %></th>
+        <td><%= f.number_field :price %></td>
+      </tr>
+
+      <tr>
+        <th><%= f.label :adress ,"住所" %></th>
+        <td><%= f.text_field :adress %></td>
+      </tr>
+
+      <tr>
+        <th><%= f.label :image ,"ルーム画像" %></th>
+        <td>
+          <div class="form-group">
+            <%= f.label :image %>
+            <%= f.file_field :image, onchange: 'previewImage()', class: 'form-control' %>
+            <%= f.hidden_field :image_cache %>
+            <%= image_tag @register.image.url, class: 'rounded-circle mt-3', id: 'preview', size: '100x100' %>
+          </div>
+        </td>
+      </tr>
+    </table>
+
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <div>
+      <ul>
+      <li><%= f.submit "登録" ,class: "form-btn" %></li>
+      </ul>
+    </div>
+<% end %>
+
+
+
