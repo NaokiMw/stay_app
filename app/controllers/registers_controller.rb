@@ -2,8 +2,9 @@ class RegistersController < ApplicationController
   before_action :search
 
   def index
-    @registers = Register.all
-    @users = User.all
+    @user = current_user.id
+    @registers = Register.where(user_id: @user)
+    
   end
   def new
     @user = current_user.id
